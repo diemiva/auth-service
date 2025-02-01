@@ -1,9 +1,9 @@
-// controllers/authController.js
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+require('dotenv').config(); // Cargamos variables de entorno desde el archivo .env
+const bcrypt = require('bcrypt'); // Importamos bcrypt para encriptar contraseñas
+const jwt = require('jsonwebtoken'); // Importamos jsonwebtoken para manejar autenticación con JWT
+const User = require('../models/User'); // Importamos el modelo de usuario
 
-const SECRET_KEY = 'su_clave_secreta_aqui';
+const SECRET_KEY = process.env.JWT_SECRET; // Obtenemos la clave secreta desde las variables de entorno
 
 // Registro de usuario
 async function register(req, res) {
